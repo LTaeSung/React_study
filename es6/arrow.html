@@ -1,0 +1,20 @@
+<script>
+    function plus(x, y){        //일반함수
+        return x+y;
+    }
+        console.log(plus(2,3));
+        console.log(typeof(plus));
+    
+        var plus = function(x,y){
+        return x+y;
+    };
+
+    var minus = function(x,y){ //익명함수 => 이름이 정의되지 않음 
+        //=> var선언시 호이스팅이 일어나 먼저 작동해버리는 경우가 생긴다
+        return x-y;
+    };
+
+    console.log(minus(9,3));
+    console.log(minus); //익명함수
+    console.log(plus); //일반함수
+</script>

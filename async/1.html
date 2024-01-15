@@ -1,0 +1,16 @@
+<script>
+    function ajax(url){
+        console.log(url+ '호출');
+        var result = '';
+
+        setTimeout(function(){
+            result = '응답결과';
+        },2000);
+        return result;
+    }
+
+    console.log('시작');
+    var result = ajax('naver.com');
+    console.log(result);
+    console.log('끝');
+</script>

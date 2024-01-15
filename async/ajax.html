@@ -1,0 +1,46 @@
+<script>
+    var req = new XMLHttpRequest();
+    // req.open('get','https://jsonplaceholder.typicode.com/posts');
+    // req.send();
+    // console.log(req.response);
+
+    // req.onreadystatechange = function(){
+    //     if(this.readyState ==4 && this.status == 200){
+    //         console.log(req.response);
+    //     }
+    // }
+
+    function ajax(callback){
+        req.open('get','https://jsonplaceholder.typicode.com/posts');
+        req.send();
+        callback(req.response);
+    }
+    function test(callback){
+        return new Promise(function (resolve, reject){
+            ajax(function(res){
+                resolve(res);
+            });
+        });
+    }
+
+    test().then(function(res){
+        req.onreadystatechange = function(){
+            if(this.readyState ==4 && this.status == 200){
+                // console.log(req.response);
+            }
+        }
+    })
+
+    async function ajax2(){
+        req.open('get','https://jsonplaceholder.typicode.com/posts');
+        req.send();
+        req.onreadystatechange = function(){
+            if(this.readyState ==4 && this.status == 200){
+                 console.log(req.response);
+            }
+        }
+    }
+
+
+    ajax2();
+</script>
